@@ -9,3 +9,8 @@ export interface IGiphyGif {
         profile_url: string
     }
 }
+
+export interface IGiphyListState {
+    isLoading : boolean
+    giphyList: IGiphyGif[]
+}

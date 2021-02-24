@@ -2,18 +2,30 @@
 import produce from "immer";
 
 import { IAction } from 'store/models/actions';
-import { IGiphyGif } from 'store/models/giphy';
+import { IGiphyListState } from 'store/models/giphy';
 
-import { ADD_TREND_GIFS } from './actions'
+import { ADD_TREND_GIFS, FETCH_GIFS_START, FETCH_GIFS_COMPLETE } from './actions'
 
+const initialSate: IGiphyListState = {
+    isLoading: true,
+    giphyList: []
+}
 
-export default (state: IGiphyGif[] = [], action: IAction): IGiphyGif[] =>
+const giphyTrendListReducer = (state: IGiphyListState = initialSate, action: IAction): IGiphyListState =>
     produce(state, draft => {
         switch (action.type) {
             case ADD_TREND_GIFS:
-                draft.push(...action.payload);
+                draft.giphyList.push(...action.payload);
+                break;
+            case FETCH_GIFS_START:
+                draft.isLoading = true;
+                break;
+            case FETCH_GIFS_COMPLETE:
+                draft.isLoading = false;
                 break;
             default:
                 break;
         }
     })
+
+export default giphyTrendListReducer;

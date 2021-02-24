@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import giphyList from 'views/GiphyList/reducer';
+import giphyTrendList from 'views/GiphyList/reducer';
 
 const rootReducers = combineReducers({
-    giphyList, 
+    giphyTrendList, 
 });
 
 export default rootReducers;

@@ -1,0 +1,62 @@
+.item {
+  height: 360px;
+  margin: 20px 0px;
+  box-sizing: border-box;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.item-color {
+  background: #fff;
+}
+
+.image-placeholder {
+  height: 75%;
+  width: 100%;
+  background: url("assets/loading.svg") no-repeat center;
+}
+
+.gif-image {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.title {
+  height: 25%;
+  color: #0074e8;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (min-width: 400px) {
+  .item {
+    width: 300px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .item {
+    width: calc((100% - 20px) / 2);
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .item {
+    width: calc((100% - 30px) / 3);
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up)  */
+@media only screen and (min-width: 992px) {
+  .item {
+    width: calc((100% - 80px) / 4);
+  }
+}

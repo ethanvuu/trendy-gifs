@@ -1,13 +1,20 @@
-import { getGiphyApi } from 'services/giphy'
+import { getGiphyApi } from 'services/giphy';
 
 export const ADD_TREND_GIFS = 'ADD_TREND_GIFS';
+export const FETCH_GIFS_START = 'FETCH_GIFS_START';
+export const FETCH_GIFS_COMPLETE = 'FETCH_GIFS_COMPLETE';
 
-export const addTrendGifs = (limit: number, offset: number) => {
+
+export const addTrendGifs = (offset: number, limit: number) => {
     return (dispatch) => {
-        getGiphyApi('/trend', { limit, offset })
-            .then(({ data }) => {
+        dispatch({ type: FETCH_GIFS_START });
+        getGiphyApi('/gifs/trending', { offset, limit })
+            .then(({ data: { data } }) => {
                 dispatch({ type: ADD_TREND_GIFS, payload: data });
+                dispatch({ type: FETCH_GIFS_COMPLETE });
             })
-            .catch(console.log)
+            .catch(() => {
+                dispatch({ type: FETCH_GIFS_COMPLETE });
+            })
     }
 }
