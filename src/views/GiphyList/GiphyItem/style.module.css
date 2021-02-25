@@ -10,6 +10,7 @@
 
 .image-wrapper {
   height: 75%;
+  background: url('assets/loading.svg') no-repeat center;
 }
 
 .title {

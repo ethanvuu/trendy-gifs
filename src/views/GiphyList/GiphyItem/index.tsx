@@ -7,7 +7,7 @@ const classes = classLister(styles);
 const GiphyItem = (props) => {
     const { data } = props;
 
-    return <div className={classes('item', 'item-block')}>
+    return <div  data-giphy-item className={classes('item', 'item-block')}>
         <div className={classes('image-wrapper')}>
             <Image
                 height={'100%'}
