@@ -10,7 +10,6 @@ import loadingIcon from 'assets/loading.svg';
 
 const classes = classLister(styles);
 
-
 const GiphyList = (props) => {
 
     const { loadTrendGifs, isLoading, giphyList } = props;
@@ -31,12 +30,12 @@ const GiphyList = (props) => {
                 {giphyList && giphyList.map(gif => (<GiphyItem key={gif.id} data={gif} />))}
             </div >
             <div style={{textAlign: 'center'}}>
-                {!isLoading && (<img  className={classes("loading-icon")} src={loadingIcon}/>)}
+                {!isLoading && (<img alt="Loading Icon" className={classes("loading-icon")} src={loadingIcon}/>)}
             </div>
-
         </div >
     );
 }
+
 const mapState = ({ giphyTrendList: { giphyList, isLoading } }) => ({ isLoading, giphyList });
 const mapDispatch = (dispatch) => ({
     loadTrendGifs: (offset, limit = 20) => dispatch(addTrendGifs(offset, limit))

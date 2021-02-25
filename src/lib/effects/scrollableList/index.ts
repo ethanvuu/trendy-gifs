@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export const useScrollableListEffect = ( isLoading, loadMoreItems) => {
+export const useScrollableListEffect = (isLoading, loadMoreItems) => {
     const shouldLoadMore = () => {
         const scrollTop = (document.documentElement
             && document.documentElement.scrollTop)
